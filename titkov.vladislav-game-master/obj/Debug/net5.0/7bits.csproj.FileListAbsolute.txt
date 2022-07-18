@@ -1,0 +1,16 @@
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.csproj.AssemblyReference.cache
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.GeneratedMSBuildEditorConfig.editorconfig
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.AssemblyInfoInputs.cache
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.AssemblyInfo.cs
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.csproj.CoreCompileInputs.cache
+E:\ycheba\7bits\bin\Debug\net5.0\7bits.exe
+E:\ycheba\7bits\bin\Debug\net5.0\7bits.deps.json
+E:\ycheba\7bits\bin\Debug\net5.0\7bits.runtimeconfig.json
+E:\ycheba\7bits\bin\Debug\net5.0\7bits.runtimeconfig.dev.json
+E:\ycheba\7bits\bin\Debug\net5.0\7bits.dll
+E:\ycheba\7bits\bin\Debug\net5.0\ref\7bits.dll
+E:\ycheba\7bits\bin\Debug\net5.0\7bits.pdb
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.dll
+E:\ycheba\7bits\obj\Debug\net5.0\ref\7bits.dll
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.pdb
+E:\ycheba\7bits\obj\Debug\net5.0\7bits.genruntimeconfig.cache
