@@ -4,7 +4,7 @@ else
 	FLAGS = ""
 endif
 
-all: clean run
+all: clean reload build exec
 
 run: reload build exec
 
@@ -12,10 +12,10 @@ mkdir_build:
 	[ -d ./cmake-build-debug ] | mkdir -p cmake-build-debug
 
 build:
-	cd cmake-build-debug;cmake --build . --target blt_hello_world
+	cd cmake-build-debug;cmake --build . --target trex
 
 exec:
-	./cmake-build-debug/blt_hello_world
+	./cmake-build-debug/trex
 
 clean:
 	rm -rf cmake-build-debug
