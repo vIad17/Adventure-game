@@ -1,5 +1,5 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_PLAYER_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_PLAYER_H_
+#ifndef INCLUDE_PLAYER_H_
+#define INCLUDE_PLAYER_H_
 
 #include "./Controls.h"
 #include "./Health.h"
@@ -22,7 +22,9 @@ class Player : public Health, public UObject {
     y_ = y;
   }
 
+  void SetLocation(int x, int y);
+
   void Update();
 };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_PLAYER_H_
+#endif  // INCLUDE_PLAYER_H_

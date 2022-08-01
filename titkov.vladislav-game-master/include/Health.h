@@ -1,5 +1,5 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_HEALTH_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_HEALTH_H_
+#ifndef INCLUDE_HEALTH_H_
+#define INCLUDE_HEALTH_H_
 
 class Health {
  public:
@@ -13,4 +13,4 @@ class Health {
   void Poison();
 };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_HEALTH_H_
+#endif  // INCLUDE_HEALTH_H_

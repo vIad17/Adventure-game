@@ -1,5 +1,5 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_WALL_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_WALL_H_
+#ifndef INCLUDE_WALL_H_
+#define INCLUDE_WALL_H_
 
 class Wall : public UObject {
  public:
@@ -9,4 +9,4 @@ class Wall : public UObject {
   }
 };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_WALL_H_
+#endif  // INCLUDE_WALL_H_

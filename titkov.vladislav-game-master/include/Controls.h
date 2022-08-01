@@ -1,5 +1,5 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_CONTROLS_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_CONTROLS_H_
+#ifndef INCLUDE_CONTROLS_H_
+#define INCLUDE_CONTROLS_H_
 
 class Controls {
   bool is_move_up_;
@@ -26,4 +26,4 @@ class Controls {
   void Update();
 };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_CONTROLS_H_
+#endif  // INCLUDE_CONTROLS_H_

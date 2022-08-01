@@ -1,9 +1,9 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_POISON_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_POISON_H_
+#ifndef INCLUDE_POISON_H_
+#define INCLUDE_POISON_H_
 
 // class Poison {
 // public:
 //   void ApplyPoison(var character);
 // };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_POISON_H_
+#endif  // INCLUDE_POISON_H_

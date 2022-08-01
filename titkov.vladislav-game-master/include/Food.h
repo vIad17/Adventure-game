@@ -1,5 +1,5 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_FOOD_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_FOOD_H_
+#ifndef INCLUDE_FOOD_H_
+#define INCLUDE_FOOD_H_
 
 #include "./UObject.h"
 
@@ -11,4 +11,4 @@ class Food : public UObject {
   }
 };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_FOOD_H_
+#endif  // INCLUDE_FOOD_H_

@@ -1,5 +1,5 @@
-#ifndef _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_COIN_H_
-#define _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_COIN_H_
+#ifndef INCLUDE_COIN_H_
+#define INCLUDE_COIN_H_
 
 #include "./UObject.h"
 
@@ -11,4 +11,4 @@ class Coin : public UObject {
   }
 };
 
-#endif  // _HOME_VLAD_CLIONPROJECTS_UNTITLED_INCLUDE_COIN_H_
+#endif  // INCLUDE_COIN_H_

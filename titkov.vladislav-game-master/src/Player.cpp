@@ -1,6 +1,6 @@
-#include <BearLibTerminal.h>
-
 #include "./Player.h"
+
+#include <BearLibTerminal.h>
 
 void Player::Render() {
   terminal_put(x_, y_, '@');
@@ -27,4 +27,8 @@ void Player::Move() {
 void Player::Update() {
   Move();
   Render();
+}
+void Player::SetLocation(int x, int y) {
+  x_ = x;
+  y_ = y;
 }
