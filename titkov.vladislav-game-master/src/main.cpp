@@ -1,54 +1,52 @@
 #include <BearLibTerminal.h>
 
+#include <string>
 #include <vector>
 
-#include "./Coin.h"
-#include "./CoinsManager.h"
-#include "./CollisionManager.h"
-#include "./Controls.h"
-#include "./Food.h"
-#include "./FoodManager.h"
-#include "./Player.h"
 #include "./Reader.h"
-#include "./Wall.h"
+#include "lib/scene_manager.h"
+#include "scenes/GameOverScene.h"
+#include "scenes/LevelScene.h"
+#include "scenes/WinGameScene.h"
+#include "systems/AISystem.h"
+#include "systems/BulletManagerSystem.h"
+#include "systems/CollisionSystem.h"
+#include "systems/GameOverSystem.h"
+#include "systems/MovementSystem.h"
+#include "systems/PlayerMoveControlSystem.h"
+#include "systems/PlayerShootControlSystem.h"
+#include "systems/RenderingSystem.h"
+#include "systems/StepsSystem.h"
 
 int main() {
   terminal_open();
   terminal_refresh();
 
-  const int x = 40;
-  const int y = 12;
-
-  std::vector<Coin> coins;
-  std::vector<Food> food;
-  std::vector<Wall> walls;
-
   Controls controls{};
-  Player player{controls, x, y, 100, 100};
+  const Engine engine{};
 
-  Reader reader(coins, food, walls, player);
-  reader.ReadFile();
-  CoinsManager cm{player, coins};
-  FoodManager fm{player, food};
-  CollisionManager colm{controls, player, walls};
+  std::vector<std::string> levels{"level1", "game_over", "win_game"};
 
-  player.Poison();
+  Context ctx(levels);
+  SceneManager sm(ctx);
+
+  std::ifstream file("../include/Level1.txt");
+
+  sm.Put(ctx.levels_[0], new LevelScene(&ctx, controls, file));
+  sm.Put(ctx.levels_[1], new WinGameScene(&ctx, controls));
+  sm.Put(ctx.levels_[2], new GameOverScene(&ctx, controls));
+
+  ctx.scene_ = ctx.levels_[0];
 
   while (true) {
-    terminal_clear();
-
-    controls.Update();
-    if (controls.IsExit()) {
+    controls.OnUpdate();
+    if (controls.IsPressed(TK_CLOSE) || controls.IsPressed(TK_ESCAPE)) {
       break;
     }
 
-    cm.Update();
-    fm.Update();
-    colm.Update();
+    sm.OnRender();
 
-    player.Update();
-
-    terminal_refresh();
+    controls.Reset();
   }
 
   terminal_close();

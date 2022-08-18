@@ -1,29 +1,35 @@
 #ifndef INCLUDE_CONTROLS_H_
 #define INCLUDE_CONTROLS_H_
 
+#include <BearLibTerminal.h>
+#include <map>
+#include <vector>
+
 class Controls {
-  bool is_move_up_;
-  bool is_move_down_;
-  bool is_move_left_;
-  bool is_move_right_;
-  bool is_exit_;
+  std::map<int, bool> is_pressed_{};
 
  public:
-  bool IsMove() const;
-  bool IsMoveRight() const;
-  bool IsMoveLeft() const;
-  bool IsMoveUp() const;
-  bool IsMoveDown() const;
+  void Press(int btn_key) {
+    is_pressed_[btn_key] = true;
+  }
+  bool IsPressed(int btn_key) const {
+    if (is_pressed_.count(btn_key) == 0) {
+      return false;
+    }
+    return is_pressed_.at(btn_key);
+  }
+  void Reset() {
+    for (auto& btn : is_pressed_) {
+      btn.second = false;
+    }
+  }
 
-  bool IsExit() const;
-
-  void SetIsMove(bool b);
-  void SetIsMoveRight(bool b);
-  void SetIsMoveLeft(bool b);
-  void SetIsMoveUp(bool b);
-  void SetIsMoveDown(bool b);
-
-  void Update();
+  void OnUpdate() {
+    while (terminal_has_input()) {
+      auto key = terminal_read();
+      is_pressed_[key] = true;
+    }
+  }
 };
 
 #endif  // INCLUDE_CONTROLS_H_

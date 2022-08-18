@@ -15,7 +15,7 @@ set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
 file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} src/scenes/LevelScene.cpp include/scenes/LevelScene.h src/systems/GameOverSystem.cpp include/systems/GameOverSystem.h src/scenes/GameOverScene.cpp include/scenes/GameOverScene.h include/components/ScoresComponent.h src/scenes/WinGameScene.cpp include/scenes/WinGameScene.h include/components/DoorComponent.h include/components/ColorComponent.h)
 
 include_directories(${PROJECT_HEADERS_DIR})
 

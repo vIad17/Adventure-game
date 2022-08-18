@@ -72,4 +72,5 @@ class SystemManager {
     }
   }
 };
+
 #endif  // INCLUDE_ECS_SYSTEM_MANAGER_H_
