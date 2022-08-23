@@ -1,6 +1,7 @@
 #include "systems/CollisionSystem.h"
 
 #include <BearLibTerminal.h>
+
 #include <algorithm>
 
 #include "components/DamageComponent.h"
@@ -17,7 +18,7 @@
 #include "components/tags/EnemyComponent.h"
 #include "components/tags/PlayerComponent.h"
 #include "components/tags/WallComponent.h"
-#include "ecs/entity_manager.h"
+#include "ecs/EntityManager.h"
 
 static bool FoodFilter(const Entity& entity) {
   return entity.Contains<FoodComponent>() && entity.Contains<TransformComponent>();
@@ -75,22 +76,22 @@ void EntityDamage(const Entity& entity, int damage) {
 
 void CollisionSystem::OnPreUpdate() {
   for (auto& entity1 : GetEntityManager()) {
-    if (PlayerFilter(entity1)) {
+    if (PlayerFilter(entity1)) {  // player
       for (auto& entity2 : GetEntityManager()) {
-        if (EnemyFilter(entity2)) {
+        if (EnemyFilter(entity2)) {  // player-enemy
           auto player_tc = entity1.Get<TransformComponent>();
           auto enemy_tc = entity2.Get<TransformComponent>();
           if (player_tc->x_ == enemy_tc->x_ && player_tc->y_ == enemy_tc->y_) {
             if (entity2.Contains<DamageComponent>()) EntityDamage(entity1, entity2.Get<DamageComponent>()->damage_);
             if (entity1.Contains<PoisoningComponent>() && entity2.Contains<PoisonComponent>()) {
-              delay = i = entity2.Get<PoisonComponent>()->delay_;
-              entity1.Get<PoisoningComponent>()->is_poisoning_ = true;
+              delay = i = ctx_->poison_delay_ = entity2.Get<PoisonComponent>()->delay_;
+              entity1.Get<PoisoningComponent>()->is_poisoning_ = ctx_->is_poisoning_ = true;
             }
             engine_.GetEntityManager()->DeleteEntity(entity2.GetId());
           }
         }
 
-        if (FoodFilter(entity2)) {
+        if (FoodFilter(entity2)) {  // player-food
           auto player_tc = entity1.Get<TransformComponent>();
           auto food_fc = entity2.Get<FoodComponent>();
           auto food_tc = entity2.Get<TransformComponent>();
@@ -102,30 +103,41 @@ void CollisionSystem::OnPreUpdate() {
           }
         }
 
-        if (AntidoteFilter(entity2)) {
+        if (AntidoteFilter(entity2)) {  // player-antidote
           auto player_tc = entity1.Get<TransformComponent>();
           auto antidote_tc = entity2.Get<TransformComponent>();
           if (player_tc->x_ == antidote_tc->x_ && player_tc->y_ == antidote_tc->y_) {
             if (entity1.Contains<PoisoningComponent>()) {
               entity1.Get<PoisoningComponent>()->is_poisoning_ = false;
+              ctx_->is_poisoning_ = false;
             }
             engine_.GetEntityManager()->DeleteEntity(entity2.GetId());
           }
         }
-        if (DoorFilter(entity2)) {
+        if (DoorFilter(entity2)) {  // player-door
           auto player_tc = entity1.Get<TransformComponent>();
           auto door_tc = entity2.Get<TransformComponent>();
+
           if (player_tc->x_ == door_tc->x_ && player_tc->y_ == door_tc->y_) {
             auto f = std::find(ctx_->levels_.begin(), ctx_->levels_.end(), ctx_->scene_);
-            ctx_->scene_ = ctx_->levels_.at(std::distance(ctx_->levels_.begin(), f+1));
+            if (entity2.Get<DoorComponent>()->is_it_next_level_) {
+              ctx_->is_it_next_level_ = true;
+              ctx_->scene_ = ctx_->levels_.at(std::distance(ctx_->levels_.begin(), f + 1));
+            } else {
+              ctx_->is_it_next_level_ = false;
+              ctx_->scene_ = ctx_->levels_.at(std::distance(ctx_->levels_.begin(), f - 1));
+            }
           }
         }
       }
+      ctx_->health_ = entity1.Get<HealthComponent>()->health_;
+      if (entity1.Contains<PoisoningComponent>())
+        ctx_->is_poisoning_ = entity1.Get<PoisoningComponent>()->is_poisoning_;
     }
 
-    if (BulletFilter(entity1)) {
+    if (BulletFilter(entity1)) {  // bullet
       for (auto& entity2 : GetEntityManager()) {
-        if (EnemyFilter(entity2)) {
+        if (EnemyFilter(entity2)) {  // bullet-enemy
           auto bullet_tc = entity1.Get<TransformComponent>();
           auto bullet_mc = entity1.Get<MovementComponent>();
           auto enemy_tc = entity2.Get<TransformComponent>();
@@ -141,9 +153,9 @@ void CollisionSystem::OnPreUpdate() {
       }
     }
 
-    if (PawnFilter(entity1)) {
+    if (PawnFilter(entity1)) {  // pawn
       for (auto& entity2 : GetEntityManager()) {
-        if (WallFilter(entity2)) {
+        if (WallFilter(entity2)) {  // pawn-wall
           auto pawn_mc = entity1.Get<MovementComponent>();
           auto pawn_tc = entity1.Get<TransformComponent>();
           auto block_tc = entity2.Get<TransformComponent>();
@@ -153,7 +165,7 @@ void CollisionSystem::OnPreUpdate() {
           }
         }
       }
-      if (entity1.Contains<PoisoningComponent>() && entity1.Contains<HealthComponent>() &&
+      if (entity1.Contains<PoisoningComponent>() && entity1.Contains<HealthComponent>() &&  // pawn if it is poisoned
           entity1.Get<PoisoningComponent>()->is_poisoning_) {
         if (i == delay) {
           EntityDamage(entity1, 1);

@@ -5,11 +5,10 @@
 #include "components/BulletCountComponent.h"
 #include "components/ColorComponent.h"
 #include "components/HealthComponent.h"
-#include "components/StepsComponent.h"
-#include "components/TextureComtonent.h"
+#include "components/TextureComponent.h"
 #include "components/TransformComponent.h"
 #include "components/tags/PlayerComponent.h"
-#include "ecs/entity_manager.h"
+#include "ecs/EntityManager.h"
 
 void RenderingSystem::OnUpdate() {
   for (auto& entity : GetEntityManager()) {
@@ -29,12 +28,7 @@ void RenderingSystem::OnUpdate() {
 
       if (entity.Contains<HealthComponent>()) {
         auto a = entity.Get<HealthComponent>()->health_;
-        terminal_printf(30, 0, "Health: %d", a);
-      }
-
-      if (entity.Contains<StepsComponent>()) {
-        auto a = entity.Get<StepsComponent>()->steps_;
-        terminal_printf(60, 0, "Steps left: %d", a);
+        terminal_printf(69, 0, "Health: %d", a);
       }
     }
   }

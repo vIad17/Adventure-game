@@ -4,7 +4,7 @@
 #include <map>
 #include <memory>
 #include <typeindex>
-#include "./component.h"
+#include "./Component.h"
 
 /**
  * Сущность не содержит каких-либо методов, связанных непосредственно с логикой

@@ -1,11 +1,11 @@
-#ifndef INCLUDE_ECS_SYSTEM_MANAGER_H_
-#define INCLUDE_ECS_SYSTEM_MANAGER_H_
+#ifndef INCLUDE_ECS_SYSTEMMANAGER_H_
+#define INCLUDE_ECS_SYSTEMMANAGER_H_
 
 #include <map>
 #include <memory>
 #include <typeindex>
-#include "./entity_manager.h"
-#include "./system.h"
+#include "./EntityManager.h"
+#include "./System.h"
 
 /**
  * Менеджер систем. Как и менеджер сущностей, выступает как 
@@ -73,4 +73,4 @@ class SystemManager {
   }
 };
 
-#endif  // INCLUDE_ECS_SYSTEM_MANAGER_H_
+#endif  // INCLUDE_ECS_SYSTEMMANAGER_H_

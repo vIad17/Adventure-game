@@ -1,9 +1,9 @@
 #ifndef INCLUDE_SYSTEMS_COLLISIONSYSTEM_H_
 #define INCLUDE_SYSTEMS_COLLISIONSYSTEM_H_
 
-#include "ecs/engine.h"
-#include "ecs/system.h"
-#include "lib/context.h"
+#include "ecs/Engine.h"
+#include "ecs/System.h"
+#include "lib/Context.h"
 
 class CollisionSystem : public ISystem {
  protected:
@@ -11,9 +11,8 @@ class CollisionSystem : public ISystem {
 
   Context* const ctx_;
   const Engine& engine_;
-
-  unsigned int i = 0;
-  unsigned int delay = 0;
+  unsigned int i = ctx_->poison_delay_;
+  unsigned int delay = ctx_->poison_delay_;
 
  public:
   CollisionSystem(EntityManager* const entity_manager, SystemManager* const system_manager, Context* const ctx,

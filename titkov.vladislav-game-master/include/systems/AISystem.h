@@ -3,7 +3,7 @@
 
 #include <random>
 
-#include "ecs/system.h"
+#include "ecs/System.h"
 
 class AISystem : public ISystem {
  protected:

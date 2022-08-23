@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "ecs/system.h"
+#include "ecs/System.h"
 
 class MovementSystem : public ISystem{
  protected:

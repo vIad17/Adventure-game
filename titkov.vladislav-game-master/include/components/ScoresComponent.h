@@ -1,7 +1,7 @@
 #ifndef INCLUDE_COMPONENTS_SCORESCOMPONENT_H_
 #define INCLUDE_COMPONENTS_SCORESCOMPONENT_H_
 
-#include "ecs/component.h"
+#include "ecs/Component.h"
 
 class ScoresComponent : public IComponent {
  public:

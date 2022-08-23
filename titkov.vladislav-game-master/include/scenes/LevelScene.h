@@ -5,18 +5,18 @@
 #include <string>
 
 #include "./Controls.h"
-#include "ecs/engine.h"
-#include "lib/i_scene.h"
+#include "ecs/Engine.h"
+#include "lib/IScene.h"
 
 class LevelScene : public IScene {
   const Controls &controls_;
-  std::ifstream &file_;
+  std::string &file_;
 
  protected:
   const Engine engine{};
 
  public:
-  explicit LevelScene(Context *const ctx, const Controls &controls, std::ifstream &file)
+  explicit LevelScene(Context *const ctx, const Controls &controls, std::string &file)
       : IScene(ctx), controls_(controls), file_(file) {}
 
   void OnCreate() override;

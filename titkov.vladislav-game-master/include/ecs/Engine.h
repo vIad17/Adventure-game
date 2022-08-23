@@ -2,8 +2,8 @@
 #define INCLUDE_ECS_ENGINE_H_
 
 #include <memory>
-#include "./entity_manager.h"
-#include "./system_manager.h"
+#include "./EntityManager.h"
+#include "./SystemManager.h"
 
 /**
  * Движок ECS представляет из себя хранилище для мененеджеров

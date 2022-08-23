@@ -2,7 +2,7 @@
 #define INCLUDE_SCENES_WINGAMESCENE_H_
 
 #include "./Controls.h"
-#include "lib/i_scene.h"
+#include "lib/IScene.h"
 
 class WinGameScene : public IScene {
   const Controls &controls_;

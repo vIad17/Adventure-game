@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/vlad/projects/7bits/titkov.vladislav-game-master'
+rm -rf cmake-build-debug
+[ -d ./cmake-build-debug ] | mkdir -p cmake-build-debug
+cd cmake-build-debug;cmake "" ..
+cd cmake-build-debug;cmake --build . --target BeautifulGame
+./cmake-build-debug/BeautifulGame
+make: Leaving directory '/home/vlad/projects/7bits/titkov.vladislav-game-master'
+ 

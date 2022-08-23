@@ -2,7 +2,7 @@
 
 #include "components/MovementComponent.h"
 #include "components/TransformComponent.h"
-#include "ecs/entity_manager.h"
+#include "ecs/EntityManager.h"
 
 
 void MovementSystem::OnUpdate() {

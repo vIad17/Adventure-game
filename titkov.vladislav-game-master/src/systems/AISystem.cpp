@@ -10,7 +10,7 @@
 #include "components/MovementComponent.h"
 #include "components/TransformComponent.h"
 #include "components/tags/PlayerComponent.h"
-#include "ecs/entity_manager.h"
+#include "ecs/EntityManager.h"
 
 static bool RandomWalkFilter(const Entity& entity) {
   return entity.Contains<AIRandomWalkComponent>() && entity.Contains<TransformComponent>() &&

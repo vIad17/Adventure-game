@@ -4,8 +4,8 @@
 #include <vector>
 
 #include "./Controls.h"
-#include "ecs/system.h"
-#include "ecs/engine.h"
+#include "ecs/System.h"
+#include "ecs/Engine.h"
 
 class Entity;
 

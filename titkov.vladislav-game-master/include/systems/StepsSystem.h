@@ -1,8 +1,8 @@
 #ifndef INCLUDE_SYSTEMS_STEPSSYSTEM_H_
 #define INCLUDE_SYSTEMS_STEPSSYSTEM_H_
 
-#include "ecs/system.h"
-#include "lib/context.h"
+#include "ecs/System.h"
+#include "lib/Context.h"
 
 class StepsSystem : public ISystem{
  protected:

@@ -1,7 +1,7 @@
 #ifndef INCLUDE_SYSTEMS_RENDERINGSYSTEM_H_
 #define INCLUDE_SYSTEMS_RENDERINGSYSTEM_H_
 
-#include "./ecs/system.h"
+#include "./ecs/System.h"
 
 class RenderingSystem : public ISystem {
  protected:

@@ -1,11 +1,11 @@
-#ifndef INCLUDE_LIB_SCENE_MANAGER_H_
-#define INCLUDE_LIB_SCENE_MANAGER_H_
+#ifndef INCLUDE_LIB_SCENEMANAGER_H_
+#define INCLUDE_LIB_SCENEMANAGER_H_
 
 #include <map>
 #include <memory>
 #include <string>
-#include "lib/context.h"
-#include "lib/i_scene.h"
+#include "lib/Context.h"
+#include "lib/IScene.h"
 
 /**
  * Менеджер сцен управляет жизненным циклом сцен:
@@ -38,4 +38,4 @@ class SceneManager {
   void Put(const std::string& name, IScene* scene);
 };
 
-#endif  // INCLUDE_LIB_SCENE_MANAGER_H_
+#endif  // INCLUDE_LIB_SCENEMANAGER_H_

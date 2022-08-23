@@ -2,7 +2,7 @@
 #define INCLUDE_SYSTEMS_PLAYERMOVECONTROLSYSTEM_H_
 
 #include "./Controls.h"
-#include "ecs/system.h"
+#include "ecs/System.h"
 
 class Entity;
 

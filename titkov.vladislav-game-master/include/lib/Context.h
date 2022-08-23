@@ -15,12 +15,18 @@
  * Но рекомендуется придумать механизм, чтобы не пришлось постоянно править класс контектса.
  * Как минимум используйте map<string, iobject*>
  */
+
 class Context {
  public:
   std::vector<std::string> levels_{};
   int scene_number_ = 0;
   std::string scene_;
   bool graphics_ = false;
+  bool is_it_next_level_ = true;
+  int health_ = 100;
+  int bullets_ = 10;
+  bool is_poisoning_ = false;
+  int poison_delay_ = 0;
 
   explicit Context(std::vector<std::string> levels) : levels_(std::move(levels)) {}
 

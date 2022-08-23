@@ -1,7 +1,7 @@
-#ifndef INCLUDE_LIB_I_SCENE_H_
-#define INCLUDE_LIB_I_SCENE_H_
+#ifndef INCLUDE_LIB_ISCENE_H_
+#define INCLUDE_LIB_ISCENE_H_
 
-#include "lib/context.h"
+#include "lib/Context.h"
 
 /**
  * Базовый интерфейс для всех сцен в игре.
@@ -43,4 +43,4 @@ class IScene {
   virtual void OnExit() = 0;
 };
 
-#endif  // INCLUDE_LIB_I_SCENE_H_
+#endif  // INCLUDE_LIB_ISCENE_H_

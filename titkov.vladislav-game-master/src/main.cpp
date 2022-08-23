@@ -3,20 +3,12 @@
 #include <string>
 #include <vector>
 
-#include "./Reader.h"
-#include "lib/scene_manager.h"
+#include "lib/SceneManager.h"
+#include "scenes/BattlefieldScene.h"
 #include "scenes/GameOverScene.h"
 #include "scenes/LevelScene.h"
+#include "scenes/MainMenuScene.h"
 #include "scenes/WinGameScene.h"
-#include "systems/AISystem.h"
-#include "systems/BulletManagerSystem.h"
-#include "systems/CollisionSystem.h"
-#include "systems/GameOverSystem.h"
-#include "systems/MovementSystem.h"
-#include "systems/PlayerMoveControlSystem.h"
-#include "systems/PlayerShootControlSystem.h"
-#include "systems/RenderingSystem.h"
-#include "systems/StepsSystem.h"
 
 int main() {
   terminal_open();
@@ -25,16 +17,20 @@ int main() {
   Controls controls{};
   const Engine engine{};
 
-  std::vector<std::string> levels{"level1", "game_over", "win_game"};
-
+  std::vector<std::string> levels{"MainMenu", "Battlefield", "level1", "level2", "level3", "game_over", "win_game"};
+  std::vector<std::string> files{"/home/vlad/CLionProjects/untitled/levels/Level1.txt",
+                                 "/home/vlad/CLionProjects/untitled/levels/Level2.txt",
+                                 "/home/vlad/CLionProjects/untitled/levels/Level3.txt",
+                                 "/home/vlad/CLionProjects/untitled/levels/Battlefield.txt"};
   Context ctx(levels);
   SceneManager sm(ctx);
-
-  std::ifstream file("../include/Level1.txt");
-
-  sm.Put(ctx.levels_[0], new LevelScene(&ctx, controls, file));
-  sm.Put(ctx.levels_[1], new WinGameScene(&ctx, controls));
-  sm.Put(ctx.levels_[2], new GameOverScene(&ctx, controls));
+  sm.Put(ctx.levels_[0], new MainMenuScene(&ctx, controls));
+  sm.Put(ctx.levels_[1], new BattlefieldScene(&ctx, controls, files[3]));
+  sm.Put(ctx.levels_[2], new LevelScene(&ctx, controls, files[0]));
+  sm.Put(ctx.levels_[3], new LevelScene(&ctx, controls, files[1]));
+  sm.Put(ctx.levels_[4], new LevelScene(&ctx, controls, files[2]));
+  sm.Put(ctx.levels_[5], new WinGameScene(&ctx, controls));
+  sm.Put(ctx.levels_[6], new GameOverScene(&ctx, controls));
 
   ctx.scene_ = ctx.levels_[0];
 

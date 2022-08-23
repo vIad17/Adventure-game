@@ -3,7 +3,7 @@
 #include "./components/MovementComponent.h"
 #include "./components/PlayerMoveControlComponent.h"
 #include "./components/TransformComponent.h"
-#include "./ecs/entity_manager.h"
+#include "./ecs/EntityManager.h"
 
 static bool Filter(const Entity& entity) {
   return entity.Contains<MovementComponent>() && entity.Contains<PlayerMoveControlComponent>() &&

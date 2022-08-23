@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "ecs/system.h"
-#include "lib/context.h"
+#include "ecs/System.h"
+#include "lib/Context.h"
 
 class GameOverSystem : public ISystem{
  protected:

@@ -10,9 +10,13 @@
 #include "systems/PlayerShootControlSystem.h"
 #include "systems/RenderingSystem.h"
 #include "systems/StepsSystem.h"
+#include "ecs/Engine.h"
+#include "ecs/System.h"
+#include "ecs/EntityManager.h"
 
 void LevelScene::OnCreate() {
-  Reader reader(engine, file_);
+  std::ifstream file(file_);
+  Reader reader(engine, ctx_, file);
   reader.ReadFile();
 
   auto sys = engine.GetSystemManager();
@@ -20,7 +24,7 @@ void LevelScene::OnCreate() {
   sys->AddSystem<MovementSystem>();
   sys->AddSystem<PlayerMoveControlSystem>(controls_);
   sys->AddSystem<PlayerShootControlSystem>(controls_, engine);
-  sys->AddSystem<BulletManagerSystem>();
+  sys->AddSystem<BulletManagerSystem>(ctx_);
   sys->AddSystem<CollisionSystem>(ctx_, engine);
   sys->AddSystem<StepsSystem>(ctx_);
   sys->AddSystem<AISystem>();

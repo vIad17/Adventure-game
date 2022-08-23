@@ -1,11 +1,10 @@
-#include "maybe_trash_maybe_not/scene_manager.h"
-
+#include "lib/SceneManager.h"
 #include <iostream>
 #include <string>
 
 void SceneManager::OnRender() {
   if (ctx_.scene_ != current_scene_) {
-    std::cout << "Transition from '" << ctx_.scene_ << "' to '" << current_scene_ << "'" << std::endl;
+    std::cout << "Transition from '" << current_scene_ << "' to '" << ctx_.scene_ << "'" << std::endl;
     if (scenes_.count(current_scene_) != 0) {
       scenes_.at(current_scene_)->OnExit();
     }

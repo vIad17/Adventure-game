@@ -3,7 +3,7 @@
 #include "components/BulletCountComponent.h"
 #include "components/MovementComponent.h"
 #include "components/PlayerShootControlComponent.h"
-#include "components/TextureComtonent.h"
+#include "components/TextureComponent.h"
 #include "components/TransformComponent.h"
 #include "components/tags/BulletComponent.h"
 

@@ -1,7 +1,7 @@
 #ifndef INCLUDE_COMPONENTS_AIRANDOMWALKCOMPONENT_H_
 #define INCLUDE_COMPONENTS_AIRANDOMWALKCOMPONENT_H_
 
-#include "./ecs/component.h"
+#include "ecs/Component.h"
 
 class AIRandomWalkComponent : public IComponent {
  public:

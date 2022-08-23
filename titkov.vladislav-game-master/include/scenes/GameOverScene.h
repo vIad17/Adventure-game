@@ -2,7 +2,7 @@
 #define INCLUDE_SCENES_GAMEOVERSCENE_H_
 
 #include "./Controls.h"
-#include "lib/i_scene.h"
+#include "lib/IScene.h"
 
 class GameOverScene : public IScene {
   const Controls &controls_;

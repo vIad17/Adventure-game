@@ -1,10 +1,10 @@
-#ifndef INCLUDE_ECS_ENTITY_MANAGER_H_
-#define INCLUDE_ECS_ENTITY_MANAGER_H_
+#ifndef INCLUDE_ECS_ENTITYMANAGER_H_
+#define INCLUDE_ECS_ENTITYMANAGER_H_
 
 #include <iostream>
 #include <map>
 #include <memory>
-#include "./entity.h"
+#include "./Entity.h"
 
 /**
  * Непосредственно класс, отвечающий за все сущности.
@@ -90,4 +90,4 @@ class EntityManager {
   }
 };
 
-#endif  // INCLUDE_ECS_ENTITY_MANAGER_H_
+#endif  // INCLUDE_ECS_ENTITYMANAGER_H_

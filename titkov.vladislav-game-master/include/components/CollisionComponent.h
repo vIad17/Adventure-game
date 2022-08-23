@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "./ecs/component.h"
+#include "ecs/Component.h"
 
 class CollisionComponent : public IComponent {
  public:
