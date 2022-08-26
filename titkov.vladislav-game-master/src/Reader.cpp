@@ -3,6 +3,7 @@
 #include <BearLibTerminal.h>
 
 #include "components/AIPursuedComponent.h"
+#include "components/BoxComponent.h"
 #include "components/AIRandomWalkComponent.h"
 #include "components/BulletCountComponent.h"
 #include "components/ColorComponent.h"
@@ -76,6 +77,14 @@ void Reader::ReadFile() {
             entity->Add<TextureComponent>('&');
           }
 
+          else if (myArray[i][j] == 'X') {
+            auto entity = engine_.GetEntityManager()->CreateEntity();
+            entity->Add<BoxComponent>(9, 1);
+            entity->Add<ColorComponent>("yellow");
+            entity->Add<TransformComponent>(i, j);
+            entity->Add<TextureComponent>('X');
+          }
+
           else if (myArray[i][j] == '#') {
             auto entity = engine_.GetEntityManager()->CreateEntity();
             entity->Add<WallComponent>();
@@ -122,9 +131,21 @@ void Reader::ReadFile() {
             entity->Add<AIPursuedComponent>(15, 5);
             entity->Add<AIRandomWalkComponent>(30);
             entity->Add<MovementComponent>(0, 0);
-            entity->Add<DamageComponent>(75);
+            entity->Add<DamageComponent>(50);
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('E');
+          }
+
+          else if (myArray[i][j] == 'N') {
+            auto entity = engine_.GetEntityManager()->CreateEntity();
+            entity->Add<EnemyComponent>();
+            entity->Add<ColorComponent>("red");
+            entity->Add<ScoresComponent>(80);
+            entity->Add<AIPursuedComponent>(1, 17);
+            entity->Add<MovementComponent>(0, 0);
+            entity->Add<DamageComponent>(20);
+            entity->Add<TransformComponent>(i, j);
+            entity->Add<TextureComponent>('N');
           }
 
           else if (myArray[i][j] == 'S') {

@@ -5,7 +5,13 @@
 #include "lib/IScene.h"
 
 class GameOverScene : public IScene {
+ protected:
   const Controls &controls_;
+  int x = 30;
+  int y = 20;
+  int index = 0;
+  int min_y = y;
+  int max_y = y + index;
 
  public:
   explicit GameOverScene(Context *const ctx, const Controls &controls) : IScene(ctx), controls_(controls) {}

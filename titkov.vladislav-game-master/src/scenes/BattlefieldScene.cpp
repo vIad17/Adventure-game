@@ -43,7 +43,7 @@ void BattlefieldScene::OnCreate() {
   reader.ReadFile();
 
   auto sys = engine.GetSystemManager();
-  sys->AddSystem<RenderingSystem>();
+  sys->AddSystem<RenderingSystem>(ctx_);
   sys->AddSystem<MovementSystem>();
   sys->AddSystem<PlayerMoveControlSystem>(controls_);
   sys->AddSystem<PlayerShootControlSystem>(controls_, engine);
@@ -69,7 +69,7 @@ void BattlefieldScene::OnRender() {
     entity->Add<AIPursuedComponent>(15, 5);
     entity->Add<AIRandomWalkComponent>(30);
     entity->Add<MovementComponent>(0, 0);
-    entity->Add<DamageComponent>(75);
+    entity->Add<DamageComponent>(50);
     entity->Add<TransformComponent>(i, j);
     entity->Add<TextureComponent>('E');
   }

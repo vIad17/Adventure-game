@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 23 10:38:46 2022
+# Make data base, printed on Fri Aug 26 18:09:35 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ VSCODE_CODE_CACHE_PATH = /home/vlad/.config/Code/CachedData/6d9b74a70ca9c7733b29
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.WN4BR1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.ZIWHR1
 # default
 .LOADED := 
 # default
@@ -55,7 +55,7 @@ MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/vlad/projects/7bits/titkov.vladislav-game-master
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -75,7 +75,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 9630
+VSCODE_PID = 28760
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -83,7 +83,7 @@ XDG_SESSION_TYPE = wayland
 # makefile (from 'Makefile', line 4)
 FLAGS = ""
 # environment
-SESSION_MANAGER = local/debian:@/tmp/.ICE-unix/1167,unix/debian:/tmp/.ICE-unix/1167
+SESSION_MANAGER = local/debian:@/tmp/.ICE-unix/1178,unix/debian:/tmp/.ICE-unix/1178
 # automatic
 *F = $(notdir $*)
 # environment
@@ -121,7 +121,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 684628416d3d4e9c90fde2feda2e4350
+INVOCATION_ID = 816c57e52b324d7f92125efde93e09e1
 # environment
 USERNAME = vlad
 # environment
@@ -155,15 +155,15 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1027
+MANAGERPID = 1038
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 9630
+GIO_LAUNCHED_DESKTOP_FILE_PID = 28760
 # environment
 _ = /usr/share/code/code
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:18318
+JOURNAL_STREAM = 8:20771
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -306,12 +306,12 @@ build:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 28 / storage = 239 B / avg = 8 B
-# current buf: size = 8162 B / used = 239 B / count = 28 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 255 B / avg = 9 B
+# current buf: size = 8162 B / used = 255 B / count = 28 / avg = 9 B
 
 # strcache performance: lookups = 49 / hit rate = 42%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=0/49=0%
-# Finished Make data base on Tue Aug 23 10:38:46 2022
+# Finished Make data base on Fri Aug 26 18:09:35 2022
 
  

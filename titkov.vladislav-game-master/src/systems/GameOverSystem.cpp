@@ -14,7 +14,10 @@ static bool PlayerFilter(const Entity& entity) {
 void GameOverSystem::OnUpdate() {
   for (auto& entity : GetEntityManager()) {
     if (PlayerFilter(entity) && entity.Get<HealthComponent>()->health_ <= 0) {
-      ctx_->scene_ = ctx_->levels_[static_cast<int>(ctx_->levels_.size() - 1)];
+      if (ctx_->scene_ == "Battlefield")
+        ctx_->scene_ = ctx_->levels_[static_cast<int>(ctx_->levels_.size() - 1)];
+      else
+        ctx_->scene_ = ctx_->levels_[static_cast<int>(ctx_->levels_.size() - 2)];
     }
   }
 }

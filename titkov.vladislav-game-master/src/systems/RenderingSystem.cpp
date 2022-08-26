@@ -26,6 +26,8 @@ void RenderingSystem::OnUpdate() {
         terminal_printf(1, 0, "Bullets: %d", a);
       }
 
+        terminal_printf(35, 0, "Scores: %d", ctx_->score_);
+
       if (entity.Contains<HealthComponent>()) {
         auto a = entity.Get<HealthComponent>()->health_;
         terminal_printf(69, 0, "Health: %d", a);

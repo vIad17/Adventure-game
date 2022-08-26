@@ -24,14 +24,15 @@ class Context {
   bool graphics_ = false;
   bool is_it_next_level_ = true;
   int health_ = 100;
-  int bullets_ = 10;
+  int bullets_ = 0;
   bool is_poisoning_ = false;
   int poison_delay_ = 0;
+  int score_ = 0;
+  int score_leaders_[3] = {0, 0, 0};
+  int amount_of_steps_ = 0;
+  int attempts_ = 0;
 
   explicit Context(std::vector<std::string> levels) : levels_(std::move(levels)) {}
-
-  int score_{0};
-  int amount_of_steps_{0};
 };
 
 #endif  // INCLUDE_LIB_CONTEXT_H_

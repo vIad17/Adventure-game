@@ -13,7 +13,7 @@ class MainMenuScene : public IScene {
 
   int x = 30;
   int y = 8;
-  int index = 1;
+  int index = 2;
   int min_y = y;
   int max_y = y + index;
 

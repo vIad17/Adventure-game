@@ -13,9 +13,10 @@ void WinGameScene::OnRender() {
   terminal_color("white");
 
   std::string steps = "Steps: " + std::to_string(ctx_->amount_of_steps_);
-  std::string score = "Score: " + std::to_string(ctx_->score_);
+  std::string score = "Scores: " + std::to_string(ctx_->score_);
 
-  terminal_print(35, 11, "You Win!");
+  terminal_print(30, 11, "That's it, you've won,");
+  terminal_print(30, 12, "are you happy now?");
   terminal_print(30, 15, steps.c_str());
   terminal_print(30, 16, score.c_str());
 
