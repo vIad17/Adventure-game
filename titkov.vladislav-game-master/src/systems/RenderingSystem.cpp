@@ -15,7 +15,7 @@ void RenderingSystem::OnUpdate() {
   for (auto& entity : GetEntityManager()) {
     if (entity.Contains<TransformComponent>()) {
       auto transform = entity.Get<TransformComponent>();
-      if (entity.Contains<GraphicComponent>()) {
+      if (entity.Contains<GraphicComponent>() && ctx_->is_graphic) {
         terminal_put(transform->x_, transform->y_, entity.Get<GraphicComponent>()->symbol_);
       } else if (entity.Contains<TextureComponent>()) {
         if (entity.Contains<ColorComponent>()) terminal_color(entity.Get<ColorComponent>()->color_);

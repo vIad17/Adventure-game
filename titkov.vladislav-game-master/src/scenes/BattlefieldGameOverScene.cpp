@@ -4,9 +4,15 @@
 
 #include <string>
 
+void PrintMessage(int x, int y, int cursor_y, const char* message) {
+  if (cursor_y == y) terminal_color("white");
+  terminal_print(x, y, message);
+  terminal_color("gray");
+}
+
 void BattlefieldGameOverScene::OnCreate() {
   ctx_->attempts_++;
-    for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     if (ctx_->score_ >= ctx_->score_leaders_[i]) {
       for (int j = 2; j > i; j--) {
         ctx_->score_leaders_[j] = ctx_->score_leaders_[j - 1];
@@ -26,14 +32,15 @@ void BattlefieldGameOverScene::OnRender() {
   std::string score = "Scores: " + std::to_string(ctx_->score_);
 
   terminal_print(35, 11, "Game over");
-  terminal_print(30, 15, steps.c_str());
-  terminal_print(30, 16, score.c_str());
+  terminal_print(35, 15, steps.c_str());
+  terminal_print(35, 16, score.c_str());
 
   terminal_color("white");
   terminal_print(x, y, "->");
+  terminal_color("gray");
 
-  terminal_print(x + 2, min_y, "Leaderboard");
-  terminal_print(x + 2, min_y + 1, "Main menu");
+  PrintMessage(x + 2, min_y, y, "Leaderboard");
+  PrintMessage(x + 2, min_y + 1, y, "Main menu");
 
   if (controls_.IsPressed(TK_UP)) {
     y--;

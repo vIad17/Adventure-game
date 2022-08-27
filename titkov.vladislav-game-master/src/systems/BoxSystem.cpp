@@ -7,6 +7,7 @@
 #include "components/BoxComponent.h"
 #include "components/ColorComponent.h"
 #include "components/FoodComponent.h"
+#include "components/GraphicComponent.h"
 #include "components/MovementComponent.h"
 #include "components/TextureComponent.h"
 #include "components/TransformComponent.h"
@@ -57,6 +58,7 @@ void BoxSystem::OnUpdate() {
               entity->Add<ColorComponent>("green");
               entity->Add<TransformComponent>(box_tc->x_ + rx, box_tc->y_ + ry);
               entity->Add<TextureComponent>('$');
+              entity->Add<GraphicComponent>(0x06);
 
               box_bc->bullet_count_--;
             } else if (box_bc->food_count_ > 0) {
@@ -65,6 +67,7 @@ void BoxSystem::OnUpdate() {
               entity->Add<ColorComponent>("green");
               entity->Add<TransformComponent>(box_tc->x_ + rx, box_tc->y_ + ry);
               entity->Add<TextureComponent>('%');
+              entity->Add<GraphicComponent>(0x07);
 
               box_bc->food_count_--;
             } else {

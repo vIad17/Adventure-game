@@ -88,6 +88,7 @@ void Reader::ReadFile() {
             entity->Add<ColorComponent>("yellow");
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('X');
+            entity->Add<GraphicComponent>(0x10);
           }
 
           else if (myArray[i][j] == '#') {
@@ -103,6 +104,7 @@ void Reader::ReadFile() {
             entity->Add<DoorComponent>(false);
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('<');
+            entity->Add<GraphicComponent>(0x09);
 
             if (ctx_->is_it_next_level_ && player->Contains<TransformComponent>()) {
               player->Get<TransformComponent>()->x_ = i + 1;
@@ -115,6 +117,7 @@ void Reader::ReadFile() {
             entity->Add<DoorComponent>(true);
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('>');
+            entity->Add<GraphicComponent>(0x09);
 
             if (!ctx_->is_it_next_level_ && player->Contains<TransformComponent>()) {
               player->Get<TransformComponent>()->x_ = i - 1;

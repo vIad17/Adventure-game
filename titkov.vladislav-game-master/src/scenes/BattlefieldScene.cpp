@@ -8,6 +8,7 @@
 #include "components/DamageComponent.h"
 #include "components/DoorComponent.h"
 #include "components/FoodComponent.h"
+#include "components/GraphicComponent.h"
 #include "components/HealthComponent.h"
 #include "components/MovementComponent.h"
 #include "components/PlayerMoveControlComponent.h"
@@ -72,6 +73,7 @@ void BattlefieldScene::OnRender() {
     entity->Add<DamageComponent>(50);
     entity->Add<TransformComponent>(i, j);
     entity->Add<TextureComponent>('E');
+    entity->Add<GraphicComponent>(0x03);
   }
 
   if (snake_delay.IsReady()) {
@@ -93,6 +95,7 @@ void BattlefieldScene::OnRender() {
     entity->Add<PoisonComponent>(50);
     entity->Add<TransformComponent>(i, j);
     entity->Add<TextureComponent>('S');
+    entity->Add<GraphicComponent>(0x04);
   }
 
   if (bullet_delay.IsReady()) {
@@ -108,6 +111,7 @@ void BattlefieldScene::OnRender() {
     entity->Add<ColorComponent>("green");
     entity->Add<TransformComponent>(i, j);
     entity->Add<TextureComponent>('$');
+    entity->Add<GraphicComponent>(0x06);
   }
 
   if (food_delay.IsReady()) {
@@ -123,6 +127,7 @@ void BattlefieldScene::OnRender() {
     entity->Add<ColorComponent>("green");
     entity->Add<TransformComponent>(i, j);
     entity->Add<TextureComponent>('%');
+    entity->Add<GraphicComponent>(0x07);
   }
 
   if (antidote_delay.IsReady()) {
@@ -138,6 +143,7 @@ void BattlefieldScene::OnRender() {
     entity->Add<ColorComponent>("green");
     entity->Add<TransformComponent>(i, j);
     entity->Add<TextureComponent>('&');
+    entity->Add<GraphicComponent>(0x05);
   }
 
   enemy_delay.Update();

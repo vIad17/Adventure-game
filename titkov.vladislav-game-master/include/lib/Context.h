@@ -31,6 +31,8 @@ class Context {
   int score_leaders_[3] = {0, 0, 0};
   int amount_of_steps_ = 0;
   int attempts_ = 0;
+  bool is_graphic = false;
+  bool is_exit = false;
 
   explicit Context(std::vector<std::string> levels) : levels_(std::move(levels)) {}
 };

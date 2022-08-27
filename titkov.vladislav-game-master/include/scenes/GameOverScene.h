@@ -7,7 +7,7 @@
 class GameOverScene : public IScene {
  protected:
   const Controls &controls_;
-  int x = 30;
+  int x = 33;
   int y = 20;
   int index = 0;
   int min_y = y;

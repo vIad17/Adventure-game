@@ -49,7 +49,7 @@ int main() {
 
   while (true) {
     controls.OnUpdate();
-    if (controls.IsPressed(TK_CLOSE) || controls.IsPressed(TK_ESCAPE)) {
+    if (controls.IsPressed(TK_CLOSE) || controls.IsPressed(TK_ESCAPE) || ctx.is_exit) {
       break;
     }
 

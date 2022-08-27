@@ -15,8 +15,8 @@ void GameOverScene::OnRender() {
   std::string score = "Scores: " + std::to_string(ctx_->score_);
 
   terminal_print(35, 11, "Game over");
-  terminal_print(30, 15, steps.c_str());
-  terminal_print(30, 16, score.c_str());
+  terminal_print(35, 15, steps.c_str());
+  terminal_print(35, 16, score.c_str());
 
   terminal_color("white");
   terminal_print(x, y, "->");

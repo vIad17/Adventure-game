@@ -7,7 +7,7 @@
 class BattlefieldGameOverScene : public IScene {
   const Controls &controls_;
 
-  int x = 30;
+  int x = 33;
   int y = 20;
   int index = 1;
   int min_y = y;
