@@ -13,7 +13,7 @@ class PngConverter {
     terminal_set("0x05: pictures/antidote.png, resize=16x16, align=center");
     terminal_set("0x06: pictures/bullet.png, resize=16x16, align=center");
     terminal_set("0x07: pictures/heal.png, resize=16x16, align=center");
-    terminal_set("0x08: pictures/wall.png, resize=16x16, align=center");
+    terminal_set("0x08: pictures/wall.png, resize=12x24, align=center");
     // terminal_set(
     //     "0x02: "
     //     "/home/vlad/projects/7bits/titkov.vladislav-game-master/pictures/"
