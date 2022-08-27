@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+#include "lib/PngConverter.h"
 #include "lib/SceneManager.h"
 #include "scenes/BattlefieldGameOverScene.h"
 #include "scenes/BattlefieldScene.h"
@@ -25,6 +26,10 @@ int main() {
   std::vector<std::string> files{"./levels/Level1.txt",     "./levels/Level2.txt", "./levels/Level3.txt",
                                  "./levels/Level4.txt",     "./levels/Level5.txt", "./levels/Level6.txt",
                                  "./levels/Battlefield.txt"};
+
+  auto converter = new PngConverter();
+  converter->Convert();
+
   Context ctx(levels);
   SceneManager sm(ctx);
   sm.Put(ctx.levels_[0], new MainMenuScene(&ctx, controls));

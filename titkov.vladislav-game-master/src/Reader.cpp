@@ -3,13 +3,14 @@
 #include <BearLibTerminal.h>
 
 #include "components/AIPursuedComponent.h"
-#include "components/BoxComponent.h"
 #include "components/AIRandomWalkComponent.h"
+#include "components/BoxComponent.h"
 #include "components/BulletCountComponent.h"
 #include "components/ColorComponent.h"
 #include "components/DamageComponent.h"
 #include "components/DoorComponent.h"
 #include "components/FoodComponent.h"
+#include "components/GraphicComponent.h"
 #include "components/HealthComponent.h"
 #include "components/MovementComponent.h"
 #include "components/PlayerMoveControlComponent.h"
@@ -41,6 +42,7 @@ void Reader::ReadFile() {
     player->Add<HealthComponent>(ctx_->health_, 100);
     player->Add<TransformComponent>(0, 0);
     player->Add<TextureComponent>('@');
+    player->Add<GraphicComponent>(0x01);
     player->Add<MovementComponent>(0, 0);
     player->Add<PlayerMoveControlComponent>(TK_RIGHT, TK_LEFT, TK_UP, TK_DOWN);
     player->Add<PlayerShootControlComponent>(TK_D, TK_A, TK_W, TK_S);
@@ -59,6 +61,7 @@ void Reader::ReadFile() {
             entity->Add<ColorComponent>("green");
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('$');
+            entity->Add<GraphicComponent>(0x06);
           }
 
           else if (myArray[i][j] == '%') {
@@ -67,6 +70,7 @@ void Reader::ReadFile() {
             entity->Add<ColorComponent>("green");
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('%');
+            entity->Add<GraphicComponent>(0x07);
           }
 
           else if (myArray[i][j] == '&') {
@@ -75,6 +79,7 @@ void Reader::ReadFile() {
             entity->Add<ColorComponent>("green");
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('&');
+            entity->Add<GraphicComponent>(0x05);
           }
 
           else if (myArray[i][j] == 'X') {
@@ -90,6 +95,7 @@ void Reader::ReadFile() {
             entity->Add<WallComponent>();
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('#');
+            entity->Add<GraphicComponent>(0x08);
           }
 
           else if (myArray[i][j] == '<') {
@@ -134,6 +140,7 @@ void Reader::ReadFile() {
             entity->Add<DamageComponent>(50);
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('E');
+            entity->Add<GraphicComponent>(0x03);
           }
 
           else if (myArray[i][j] == 'N') {
@@ -146,6 +153,7 @@ void Reader::ReadFile() {
             entity->Add<DamageComponent>(20);
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('N');
+            entity->Add<GraphicComponent>(0x02);
           }
 
           else if (myArray[i][j] == 'S') {
@@ -160,6 +168,7 @@ void Reader::ReadFile() {
             entity->Add<PoisonComponent>(50);
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('S');
+            entity->Add<GraphicComponent>(0x04);
           } else {
             auto entity = engine_.GetEntityManager()->CreateEntity();
             entity->Add<TransformComponent>(i, j);
