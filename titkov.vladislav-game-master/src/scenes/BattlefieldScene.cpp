@@ -33,6 +33,7 @@
 #include "systems/CollisionSystem.h"
 #include "systems/GameOverSystem.h"
 #include "systems/MovementSystem.h"
+#include "systems/PauseSystem.h"
 #include "systems/PlayerMoveControlSystem.h"
 #include "systems/PlayerShootControlSystem.h"
 #include "systems/RenderingSystem.h"
@@ -51,6 +52,7 @@ void BattlefieldScene::OnCreate() {
   sys->AddSystem<BulletManagerSystem>(ctx_);
   sys->AddSystem<CollisionSystem>(ctx_, engine);
   sys->AddSystem<StepsSystem>(ctx_);
+  sys->AddSystem<PauseSystem>(ctx_, controls_);
   sys->AddSystem<AISystem>();
   sys->AddSystem<GameOverSystem>(ctx_);
 }

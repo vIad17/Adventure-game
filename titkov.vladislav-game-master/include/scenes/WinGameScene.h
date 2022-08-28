@@ -7,6 +7,12 @@
 class WinGameScene : public IScene {
   const Controls &controls_;
 
+  int x = 33;
+  int y = 20;
+  int index = 0;
+  int min_y = y;
+  int max_y = y + index;
+
  public:
   explicit WinGameScene(Context *const ctx, const Controls &controls) : IScene(ctx), controls_(controls) {}
 

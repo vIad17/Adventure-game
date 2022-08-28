@@ -9,7 +9,7 @@ class LeaderboardScene : public IScene {
 
   int x = 33;
   int y = 20;
-  int index = 1;
+  int index = 0;
   int min_y = y;
   int max_y = y + index;
 

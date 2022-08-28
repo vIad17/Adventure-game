@@ -13,6 +13,10 @@ class BattlefieldGameOverScene : public IScene {
   int min_y = y;
   int max_y = y + index;
 
+  // void PrintMessage(int current_x, int current_y, const char *message){}
+ private:
+  void PrintMessage(int current_x, int current_y, const char *message);
+
  public:
   explicit BattlefieldGameOverScene(Context *const ctx, const Controls &controls) : IScene(ctx), controls_(controls) {}
 

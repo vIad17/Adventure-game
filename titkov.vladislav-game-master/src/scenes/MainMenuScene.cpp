@@ -9,9 +9,9 @@
 #include "components/TextureComponent.h"
 #include "components/TransformComponent.h"
 
-void PrintMessage(int x, int y, int cursor_y, const char* message) {
-  if (cursor_y == y) terminal_color("white");
-  terminal_print(x, y, message);
+void MainMenuScene::PrintMessage(int current_x, int current_y, const char* message) {
+  if (y == current_y) terminal_color("white");
+  terminal_print(current_x, current_y, message);
   terminal_color("gray");
 }
 
@@ -30,11 +30,11 @@ void MainMenuScene::OnRender() {
   terminal_print(x, y, "->");
   terminal_color("gray");
 
-  PrintMessage(x + 2, min_y, y, "Story mode");
-  PrintMessage(x + 2, min_y + 1, y, "Battlefield");
-  PrintMessage(x + 2, min_y + 2, y, "Leaderboard");
-  PrintMessage(x + 2, min_y + 3, y, "Graphic");
-  PrintMessage(x + 2, min_y + 4, y, "Exit");
+  PrintMessage(x + 2, min_y, "Story mode");
+  PrintMessage(x + 2, min_y + 1, "Battlefield");
+  PrintMessage(x + 2, min_y + 2, "Leaderboard");
+  PrintMessage(x + 2, min_y + 3, "Graphic");
+  PrintMessage(x + 2, min_y + 4, "Exit");
 
   if (controls_.IsPressed(TK_UP)) {
     y--;

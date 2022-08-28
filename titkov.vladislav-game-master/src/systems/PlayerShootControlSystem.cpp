@@ -1,6 +1,7 @@
 #include "systems/PlayerShootControlSystem.h"
 
 #include "components/BulletCountComponent.h"
+#include "components/GraphicComponent.h"
 #include "components/MovementComponent.h"
 #include "components/PlayerShootControlComponent.h"
 #include "components/TextureComponent.h"
@@ -28,6 +29,7 @@ void PlayerShootControlSystem::Shoot(Entity* entity, int dx, int dy) {
   bullets.back()->Add<TransformComponent>(tc->x_, tc->y_);
   bullets.back()->Add<MovementComponent>(dx, dy);
   bullets.back()->Add<TextureComponent>('*');
+  bullets.back()->Add<GraphicComponent>(0x11);
 }
 
 void PlayerShootControlSystem::OnUpdate() {

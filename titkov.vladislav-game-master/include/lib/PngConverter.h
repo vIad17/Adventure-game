@@ -16,6 +16,7 @@ class PngConverter {
     terminal_set("0x08: pictures/wall.png, resize=10x24, align=center");
     terminal_set("0x09: pictures/door.png, resize=12x16, align=center");
     terminal_set("0x10: pictures/box.png, resize=16x16, align=center");
+    terminal_set("0x11: pictures/shoot.png, resize=16x16, align=center");
 
     // terminal_set(
     //     "0x02: "

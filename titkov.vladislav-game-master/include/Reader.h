@@ -15,6 +15,7 @@ class Reader : IReader {
 
  public:
   Reader(const Engine &engine, const Context *ctx, std::ifstream &file) : engine_(engine), ctx_(ctx), file_(file) {}
+
   void ReadFile() override;
 };
 

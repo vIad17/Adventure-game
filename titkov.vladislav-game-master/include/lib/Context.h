@@ -1,9 +1,12 @@
 #ifndef INCLUDE_LIB_CONTEXT_H_
 #define INCLUDE_LIB_CONTEXT_H_
 
+#include <map>
 #include <string>
 #include <utility>
 #include <vector>
+
+#include "ecs/Entity.h"
 
 /**
  * В контексте хранится информация о сцене, которую нужно сейчас отрисоватывать.
@@ -19,9 +22,10 @@
 class Context {
  public:
   std::vector<std::string> levels_{};
+  std::map<std::string, std::vector<Entity>> level_entities_;
   int scene_number_ = 0;
   std::string scene_;
-  bool graphics_ = false;
+  std::string prev_scene_;
   bool is_it_next_level_ = true;
   int health_ = 100;
   int bullets_ = 0;
