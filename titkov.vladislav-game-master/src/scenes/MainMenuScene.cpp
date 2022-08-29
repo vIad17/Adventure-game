@@ -60,9 +60,9 @@ void MainMenuScene::OnRender() {
   }
 
   if (controls_.IsPressed(TK_ENTER)) {
-    if (y == min_y) ctx_->scene_ = ctx_->levels_[static_cast<int>(2)];
-    if (y == min_y + 1) ctx_->scene_ = ctx_->levels_[static_cast<int>(1)];
-    if (y == min_y + 2) ctx_->scene_ = ctx_->levels_[static_cast<int>(ctx_->levels_.size() - 4)];
+    if (y == min_y) ctx_->scene_ = ctx_->levels_[2];
+    if (y == min_y + 1) ctx_->scene_ = ctx_->levels_[1];
+    if (y == min_y + 2) ctx_->scene_ = ctx_->levels_[static_cast<int>(ctx_->levels_.size() - 3)];
     if (y == min_y + 3) ctx_->is_graphic = !ctx_->is_graphic;
     if (y == min_y + 4) ctx_->is_exit = true;
   }
