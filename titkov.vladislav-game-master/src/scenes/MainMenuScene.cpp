@@ -21,6 +21,10 @@ void MainMenuScene::OnCreate() {
   ctx_->amount_of_steps_ = 0;
   ctx_->score_ = 0;
   ctx_->is_poisoning_ = false;
+
+  for (auto it = ctx_->visited_levels_.begin(); it != ctx_->visited_levels_.end(); ++it) {
+    it->second = false;
+  }
 }
 
 void MainMenuScene::OnRender() {

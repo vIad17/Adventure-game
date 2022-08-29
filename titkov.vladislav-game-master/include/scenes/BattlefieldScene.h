@@ -1,8 +1,8 @@
 #ifndef INCLUDE_SCENES_BATTLEFIELDSCENE_H_
 #define INCLUDE_SCENES_BATTLEFIELDSCENE_H_
 
-#include <random>
 #include <fstream>
+#include <random>
 #include <string>
 
 #include "./Controls.h"
@@ -12,7 +12,8 @@
 
 class BattlefieldScene : public IScene {
   const Controls &controls_;
-  std::string &file_;
+  const std::string &original_file_;
+  const std::string &copy_file_;
 
  protected:
   const Engine engine{};
@@ -25,8 +26,9 @@ class BattlefieldScene : public IScene {
   std::mt19937 random_generator_;
 
  public:
-  explicit BattlefieldScene(Context *const ctx, const Controls &controls, std::string &file)
-      : IScene(ctx), controls_(controls), file_(file) {}
+  explicit BattlefieldScene(Context *const ctx, const Controls &controls, const std::string &original_file,
+                            const std::string &copy_file)
+      : IScene(ctx), controls_(controls), original_file_(original_file), copy_file_(copy_file) {}
 
   void OnCreate() override;
 

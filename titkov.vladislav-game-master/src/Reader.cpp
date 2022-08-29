@@ -34,20 +34,6 @@ void Reader::ReadFile() {
   char myArray[x][y];
 
   if (file_) {
-    auto player = engine_.GetEntityManager()->CreateEntity();
-    player->Add<ColorComponent>("yellow");
-    player->Add<StepsComponent>();
-    player->Add<PoisoningComponent>(ctx_->is_poisoning_);
-    player->Add<PlayerComponent>();
-    player->Add<HealthComponent>(ctx_->health_, 100);
-    player->Add<TransformComponent>(0, 0);
-    player->Add<TextureComponent>('@');
-    player->Add<GraphicComponent>(0x01);
-    player->Add<MovementComponent>(0, 0);
-    player->Add<PlayerMoveControlComponent>(TK_RIGHT, TK_LEFT, TK_UP, TK_DOWN);
-    player->Add<PlayerShootControlComponent>(TK_D, TK_A, TK_W, TK_S);
-    player->Add<BulletCountComponent>(ctx_->bullets_);
-
     for (int j = 0; j < y; j++) {
       for (int i = 0; i < x; i++) {
         file_ >> myArray[i][j];
@@ -105,11 +91,6 @@ void Reader::ReadFile() {
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('<');
             entity->Add<GraphicComponent>(0x09);
-
-            if (ctx_->is_it_next_level_ && player->Contains<TransformComponent>()) {
-              player->Get<TransformComponent>()->x_ = i + 1;
-              player->Get<TransformComponent>()->y_ = j;
-            }
           }
 
           else if (myArray[i][j] == '>') {
@@ -118,18 +99,22 @@ void Reader::ReadFile() {
             entity->Add<TransformComponent>(i, j);
             entity->Add<TextureComponent>('>');
             entity->Add<GraphicComponent>(0x09);
-
-            if (!ctx_->is_it_next_level_ && player->Contains<TransformComponent>()) {
-              player->Get<TransformComponent>()->x_ = i - 1;
-              player->Get<TransformComponent>()->y_ = j;
-            }
           }
 
           else if (myArray[i][j] == '@') {
-            if (player->Contains<TransformComponent>() && ctx_->is_it_next_level_) {
-              player->Get<TransformComponent>()->x_ = i;
-              player->Get<TransformComponent>()->y_ = j;
-            }
+            auto player = engine_.GetEntityManager()->CreateEntity();
+            player->Add<ColorComponent>("yellow");
+            player->Add<StepsComponent>();
+            player->Add<PoisoningComponent>(ctx_->is_poisoning_);
+            player->Add<PlayerComponent>();
+            player->Add<HealthComponent>(ctx_->health_, 100);
+            player->Add<TransformComponent>(i, j);
+            player->Add<TextureComponent>('@');
+            player->Add<GraphicComponent>(0x01);
+            player->Add<MovementComponent>(0, 0);
+            player->Add<PlayerMoveControlComponent>(TK_RIGHT, TK_LEFT, TK_UP, TK_DOWN);
+            player->Add<PlayerShootControlComponent>(TK_D, TK_A, TK_W, TK_S);
+            player->Add<BulletCountComponent>(ctx_->bullets_);
           }
 
           else if (myArray[i][j] == 'E') {

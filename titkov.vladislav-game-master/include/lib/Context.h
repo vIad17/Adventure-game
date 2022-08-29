@@ -22,11 +22,12 @@
 class Context {
  public:
   std::vector<std::string> levels_{};
-  std::map<std::string, std::vector<Entity>> level_entities_;
+  std::map<std::string, bool> visited_levels_;
   int scene_number_ = 0;
   std::string scene_;
   std::string prev_scene_;
   bool is_it_next_level_ = true;
+  bool is_it_new_level_ = false;
   int health_ = 100;
   int bullets_ = 0;
   bool is_poisoning_ = false;
@@ -38,7 +39,8 @@ class Context {
   bool is_graphic = false;
   bool is_exit = false;
 
-  explicit Context(std::vector<std::string> levels) : levels_(std::move(levels)) {}
+  explicit Context(std::vector<std::string> levels, std::map<std::string, bool> visited_levels)
+      : levels_(std::move(levels)), visited_levels_(visited_levels) {}
 };
 
 #endif  // INCLUDE_LIB_CONTEXT_H_

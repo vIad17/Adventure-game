@@ -10,14 +10,16 @@
 
 class LevelScene : public IScene {
   const Controls &controls_;
-  std::string &file_;
-
+  const std::string &original_file_;
+  const std::string &copy_file_;
  protected:
   const Engine engine{};
 
  public:
-  explicit LevelScene(Context *const ctx, const Controls &controls, std::string &file)
-      : IScene(ctx), controls_(controls), file_(file) {}
+ public:
+  explicit LevelScene(Context *const ctx, const Controls &controls, const std::string &original_file,
+                            const std::string &copy_file)
+      : IScene(ctx), controls_(controls), original_file_(original_file), copy_file_(copy_file) {}
 
   void OnCreate() override;
 

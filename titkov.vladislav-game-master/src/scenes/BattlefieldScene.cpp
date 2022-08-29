@@ -40,9 +40,13 @@
 #include "systems/StepsSystem.h"
 
 void BattlefieldScene::OnCreate() {
-  std::ifstream file(file_);
-  Reader reader(engine, ctx_, file);
-  reader.ReadFile();
+  if (!ctx_->visited_levels_.at(ctx_->scene_)) {
+    engine.GetEntityManager()->DeleteAll();
+    std::ifstream file(original_file_);
+    Reader reader(engine, ctx_, file);
+    reader.ReadFile();
+    ctx_->visited_levels_.at(ctx_->scene_) = true;
+  }
 
   auto sys = engine.GetSystemManager();
   sys->AddSystem<RenderingSystem>(ctx_);
@@ -156,6 +160,5 @@ void BattlefieldScene::OnRender() {
   engine.OnUpdate();
 }
 void BattlefieldScene::OnExit() {
-  engine.GetEntityManager()->DeleteAll();
   engine.GetSystemManager()->DeleteAll();
 }

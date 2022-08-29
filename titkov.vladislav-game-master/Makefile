@@ -12,10 +12,10 @@ mkdir_build:
 	[ -d ./cmake-build-debug ] | mkdir -p cmake-build-debug
 
 build:
-	cd cmake-build-debug;cmake --build . --target BeautifulGame
+	cd cmake-build-debug;cmake --build . --target trex
 
 exec:
-	./cmake-build-debug/BeautifulGame
+	./cmake-build-debug/trex
 
 clean:
 	rm -rf cmake-build-debug

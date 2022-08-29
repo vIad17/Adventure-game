@@ -34,7 +34,7 @@ static bool EnemyFilter(const Entity& entity) {
 
 static bool PlayerFilter(const Entity& entity) {
   return entity.Contains<PlayerComponent>() && entity.Contains<TransformComponent>() &&
-         entity.Contains<HealthComponent>();
+         entity.Contains<HealthComponent>() && entity.Contains<MovementComponent>();
 }
 
 static bool BulletFilter(const Entity& entity) {
@@ -116,6 +116,7 @@ void CollisionSystem::OnPreUpdate() {
         }
         if (DoorFilter(entity2)) {  // player-door
           auto player_tc = entity1.Get<TransformComponent>();
+          // auto player_mc = entity1.Get<MovementComponent>();
           auto door_tc = entity2.Get<TransformComponent>();
 
           if (player_tc->x_ == door_tc->x_ && player_tc->y_ == door_tc->y_) {
@@ -123,9 +124,11 @@ void CollisionSystem::OnPreUpdate() {
             if (entity2.Get<DoorComponent>()->is_it_next_level_) {
               ctx_->is_it_next_level_ = true;
               ctx_->scene_ = ctx_->levels_.at(std::distance(ctx_->levels_.begin(), f + 1));
+              player_tc->x_ = door_tc->x_ - 1;
             } else {
               ctx_->is_it_next_level_ = false;
               ctx_->scene_ = ctx_->levels_.at(std::distance(ctx_->levels_.begin(), f - 1));
+              player_tc->x_ = door_tc->x_ + 1;
             }
           }
         }

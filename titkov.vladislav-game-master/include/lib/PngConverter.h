@@ -17,11 +17,6 @@ class PngConverter {
     terminal_set("0x09: pictures/door.png, resize=12x16, align=center");
     terminal_set("0x10: pictures/box.png, resize=16x16, align=center");
     terminal_set("0x11: pictures/shoot.png, resize=16x16, align=center");
-
-    // terminal_set(
-    //     "0x02: "
-    //     "/home/vlad/projects/7bits/titkov.vladislav-game-master/pictures/"
-    //     "background.png, resize=640x320");
   }
 };
 
