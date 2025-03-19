@@ -1,5 +1,28 @@
 # Game Overview
-The game is a real-time Roguelike.
+The game is a real-time Adventure. BearLibTerminal was used as the graphics library. The game was written using the ecs pattern.
+
+## Setting Up the Development Environment
+1. On the official CMake website, find the "Latest Release" section and then the "Unix/Linux Source" line.
+2. Download the `cmake-*.tar.gz` archive from the link in this line (where `*` will be the version).
+3. Execute the following commands in the terminal:
+```bash
+cd folder_with_downloaded_archive
+tar -xzvf cmake-3.17.0.tar.gz
+cd cmake-3.17.0
+./bootstrap
+make -j4
+sudo make install
+```
+
+## Running the Game
+Run in your terminal
+```
+make
+```
+or
+```
+make run
+```
 
 ## Game Modes
 There are two game modes:
@@ -38,11 +61,6 @@ There are four types of bonuses in the game:
 ## Controls
 - **W, A, S, D**: Shoot in different directions.
 - **←, →, ↑, ↓**: Move the character.
-
-## Setting Up the Development Environment
-1. On the official CMake website, find the "Latest Release" section and then the "Unix/Linux Source" line.
-2. Download the `cmake-*.tar.gz` archive from the link in this line (where `*` will be the version).
-3. Execute the following commands in the terminal:
 
 ## Images
 ![alt text](images/image.png)
