@@ -25,17 +25,6 @@ void LevelScene::OnCreate() {
     ctx_->visited_levels_.at(ctx_->scene_) = true;
   }
 
-    // if (ctx_->level_entities_.find(ctx_->scene_) != ctx_->level_entities_.end()) {
-    //   for (auto c : ctx_->level_entities_.at(ctx_->scene_)) {
-    //     auto entity = engine.GetEntityManager()->CreateEntity();
-    //     entity = &c;
-    //   }
-    // } else {
-    // std::ifstream file(file_);
-    // Reader reader(engine, ctx_, file);
-    // reader.ReadFile();
-    // }
-
     auto sys = engine.GetSystemManager();
     sys->AddSystem<RenderingSystem>(ctx_);
     sys->AddSystem<MovementSystem>();

@@ -1,7 +1,5 @@
 #include "systems/SaveLevelSystem.h"
 
-// #include <vector>
-
 #include "ecs/EntityManager.h"
 
 void SaveLevelSystem::OnUpdate() {

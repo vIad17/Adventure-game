@@ -1,39 +1,51 @@
-Игра представляет из себя Rougelike в режиме реального времени.
+# Game Overview
+The game is a real-time Roguelike.
 
-В игре есть 2 режима:
-- story mode: Режим, состоящий из 6 уровней, которые нужно пройти для победы.
-- battlefield: Бесконечный режим, в котором враги и бонусы постоянно появляются в пределах игрового поля. Цель режима: набрать как можно больше очков. Сами очки начисляются за убийство врагов.
+## Game Modes
+There are two game modes:
+- **Story Mode**: This mode consists of 6 levels that you need to complete to win.
+- **Battlefield**: An endless mode where enemies and bonuses continuously appear within the game field. The goal is to accumulate as many points as possible. Points are awarded for killing enemies.
 
-Всего есть 3 типа врагов:
-- `E` - обычный враг. Урон: `50`. Скорость передвижения: `средняя`. Скорость преследования - средняя. Дальность зрения: `5`. Очков за убийство: 100.
-- `S` - змея. Урон: `10`. Скорость передвижения: медленная. Скорость преследования - быстрая. Дальность зрения: `3`. Очков за убийство: `150`. Особенность: при соприкосновении с персонажем, змея выплескивает `яд`, который медленно уменьшает здоровье персонажа.
-- `N` - ниндзя. Урон: `20`. Скорость передвижения: отсутствует. Скорость преследования - моментальная. Дальность зрения: `17`. Очков за убийство: `80`. 
+## Enemies
+There are three types of enemies:
+- **`E` - Regular Enemy**
+  - Damage: `50`
+  - Movement Speed: medium
+  - Pursuit Speed: medium
+  - Vision Range: `5`
+  - Points for Killing: 100
+- **`S` - Snake**
+  - Damage: `10`
+  - Movement Speed: slow
+  - Pursuit Speed: fast
+  - Vision Range: `3`
+  - Points for Killing: `150`
+  - Special Feature: Upon contact with the character, the snake releases poison that slowly reduces the character's health.
+- **`N` - Ninja**
+  - Damage: `20`
+  - Movement Speed: none
+  - Pursuit Speed: instantaneous
+  - Vision Range: `17`
+  - Points for Killing: `80`
 
-Бонусов в игре 4:
-- `$` - монета. Подобрав одну монету, вы "покупаете" одну пулю, котором можете стрелять.
-- `%` - еда. Подобрав еду, вы восстанавливаете себе `50` hp
-- `&` - антидот. С помощью антидота, вы лечите себя от `яда`, оставленного змеями (`S`).
-- `X` - сундук. При взаимодействии сундука с игроком (`@`) или пулей (`*`), сундук уничтожается, оставляя после себя монеты (`$`) и еду (`%`).
+## Bonuses
+There are four types of bonuses in the game:
+- **`$` - Coin**: Picking up a coin allows you to "buy" one bullet to shoot.
+- **`%` - Food**: Picking up food restores `50` HP.
+- **`&` - Antidote**: The antidote cures the poison left by snakes (`S`).
+- **`X` - Chest**: When a chest interacts with the player (`@`) or a bullet (`*`), it is destroyed, leaving behind coins (`$`) and food (`%`).
 
-Управление: 
-- W, A, S, D - стрельба по сторонам.
-- ←, →, ↑, ↓ - передвижение персонажа.
+## Controls
+- **W, A, S, D**: Shoot in different directions.
+- **←, →, ↑, ↓**: Move the character.
 
-установка рабочего окружения:
-1. В разделе Download официального сайта CMake найдите пункт Latest Release, а затем строку Unix/Linux Source.
-2. Скачайте архив cmake-*.tar.gz по ссылке в этой строке (на месте * будет указана версия).
-3. Выполните в терминале:
- - cd папка_с_загруженным_архивом
- - tar -xzvf cmake-3.17.0.tar.gz
- - cd cmake-3.17.0
- - ./bootstrap
- - make -j4
- - sudo make install
+## Setting Up the Development Environment
+1. On the official CMake website, find the "Latest Release" section and then the "Unix/Linux Source" line.
+2. Download the `cmake-*.tar.gz` archive from the link in this line (where `*` will be the version).
+3. Execute the following commands in the terminal:
 
-
-для запуска игры:
-1. Откройте терминал на вашем компьютере
-2. пропишите в терминале `cd (file_path)/titkov.vladislav-game-master/`
-3. пропишите в терминале `make` или `make run`
-
-
+## Images
+![alt text](images/image.png)
+![alt text](images/image-1.png)
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)

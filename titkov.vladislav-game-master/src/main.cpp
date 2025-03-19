@@ -42,19 +42,14 @@ int main() {
                                           "./levels/original/Level5.txt",     "./levels/original/Level6.txt",
                                           "./levels/original/Battlefield.txt"};
   std::vector<std::string> copy_files{"./levels/copy/Level1.txt",     "./levels/copy/Level2.txt",
-                                      "./levels/copy/Level3.txt", "./levels/copy/Level4.txt",
+                                      "./levels/copy/Level3.txt",     "./levels/copy/Level4.txt",
                                       "./levels/copy/Level5.txt",     "./levels/copy/Level6.txt",
                                       "./levels/copy/Battlefield.txt"};
-
-  // std::vector<std::string> files{"./levels/Level1.txt",     "./levels/Level2.txt", "./levels/Level3.txt",
-  //                                "./levels/Level4.txt",     "./levels/Level5.txt", "./levels/Level6.txt",
-  //                                "./levels/Battlefield.txt"};
 
   auto converter = new PngConverter();
   converter->Convert();
 
   Context ctx(levels, visited_levels);
-  // Context ctx(levels);
 
   SceneManager sm(ctx);
   sm.Put(ctx.levels_[0], new MainMenuScene(&ctx, controls));
@@ -65,13 +60,6 @@ int main() {
   sm.Put(ctx.levels_[5], new LevelScene(&ctx, controls, original_files[3], copy_files[3]));
   sm.Put(ctx.levels_[6], new LevelScene(&ctx, controls, original_files[4], copy_files[4]));
   sm.Put(ctx.levels_[7], new LevelScene(&ctx, controls, original_files[5], copy_files[5]));
-  // sm.Put(ctx.levels_[1], new BattlefieldScene(&ctx, controls, files[6]));
-  // sm.Put(ctx.levels_[2], new LevelScene(&ctx, controls, files[0]));
-  // sm.Put(ctx.levels_[3], new LevelScene(&ctx, controls, files[1]));
-  // sm.Put(ctx.levels_[4], new LevelScene(&ctx, controls, files[2]));
-  // sm.Put(ctx.levels_[5], new LevelScene(&ctx, controls, files[3]));
-  // sm.Put(ctx.levels_[6], new LevelScene(&ctx, controls, files[4]));
-  // sm.Put(ctx.levels_[7], new LevelScene(&ctx, controls, files[5]));
   sm.Put(ctx.levels_[8], new WinGameScene(&ctx, controls));
   sm.Put(ctx.levels_[9], new PauseScene(&ctx, controls));
   sm.Put(ctx.levels_[10], new LeaderboardScene(&ctx, controls));
